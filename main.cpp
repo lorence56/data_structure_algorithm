@@ -1,9 +1,9 @@
-#include <vector>
+#include <iostream>
 
-int singleNumber(std::vector<int>& nums) {
-    int result = 0;
-    for (int num : nums) {
-        result ^= num; // XOR operation cancels out duplicates
-    }
-    return result;
+using namespace std;
+
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
 }
