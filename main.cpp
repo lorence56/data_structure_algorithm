@@ -1,32 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
 
-bool containsDuplicate(std::vector<int>& nums) {
-    std::unordered_set<int> seen;
+int singleNumber(std::vector<int>& nums) {
+    int result = 0;
 
     for (int num : nums) {
-        if (seen.find(num) != seen.end()) {
-            // Found a duplicate
-            return true;
-        }
-
-        // Add the element to the set
-        seen.insert(num);
+        // XOR each element
+        result ^= num;
     }
 
-    // No duplicates found
-    return false;
+    return result;
 }
 
 int main() {
-    std::vector<int> nums = {1, 2, 2, 3, 4, 5, 6, 7};
+    std::vector<int> nums = {4, 2, 1, 2, 1};
 
-    if (containsDuplicate(nums)) {
-        std::cout << "The array contains duplicates. True" << std::endl;
-    } else {
-        std::cout << "The array does not contain duplicates. False" << std::endl;
-    }
+    int single = singleNumber(nums);
+
+    std::cout << "The single number is: " << single << std::endl;
 
     return 0;
 }
+
